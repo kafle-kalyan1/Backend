@@ -41,17 +41,18 @@ export const createUser = catchAsync(async (req, res, next) => {
 
     //send verification mail
     const verificationLink = `${process.env.IP_URL}/api/v1/user/thegreenarea/verify-email/${verificationToken}`;
+    
     let transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      auth: {
-        user: "david.kertzmann56@ethereal.email",
-        pass: "NUnDcSAyHnAHb8dzSg",
-      },
-    });
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
+  },
+});
+
 
     let mailOptions = {
-      from: "khalifaanil84@gmail.com",
+      from: `${process.env.Email}`,
       to: email,
       subject: "Verify your email!",
       text: "Verify Email",
