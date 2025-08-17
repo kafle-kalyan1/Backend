@@ -140,7 +140,7 @@ export const verifyEmail = catchAsync(async (req, res, next) => {
             <i class="checkmark">✓</i>
           </div>
             <h1>SuccessFully verified</h1> 
-            <p>Now you can login<br/><a href="http://localhost:3000/login"> Go to login page</a></p>
+            <p>Now you can login<br/><a href="${process.env.IP_URL}/login"> Go to login page</a></p>
           </div>
         </body>
     </html>
